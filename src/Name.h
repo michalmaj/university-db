@@ -1,3 +1,8 @@
+/*
+ * Klasa pozwala na dodanie imienia i nazwiska dla studenta.
+ * Dodano operator pozwalający na sprawdzenie, które nazwisko jest mniejsze alfabetycznie.
+*/
+
 #pragma once
 #include <iostream>
 #include <string>
@@ -8,7 +13,7 @@ class Name {
   friend std::istream &operator>>(std::istream &in, Name &n);
 
 public:
-std::string getFirstName() const;
+  std::string getFirstName() const;
   std::string getLastName() const;
   bool operator<(const Name &other) const;
 

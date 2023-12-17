@@ -1,3 +1,7 @@
+/*
+ * Klasa do obsługi menu 
+*/
+
 #pragma once
 
 #include "StudentDataBase.h"

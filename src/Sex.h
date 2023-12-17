@@ -1,3 +1,7 @@
+/*
+ * Klas do przechowywania płci studenta. Dodano weryfikację z numerem pesel (przedostatni numer, wskazuje na płeć).
+*/
+
 #pragma once
 
 #include <iostream>

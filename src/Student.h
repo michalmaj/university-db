@@ -1,3 +1,7 @@
+/*
+ * W tej klasie zostaje zbudowany student z odpowiednich klas.
+*/
+
 #pragma once
 #include "Address.h"
 #include "IndexNumber.h"

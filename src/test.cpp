@@ -1,3 +1,7 @@
+/*
+ * Kilka testów sprawdzających poprawność klas.
+*/
+
 #include <gtest/gtest.h>
 #include <sstream>
 #include "Address.h"
@@ -39,33 +43,32 @@ TEST(AddressTest, GetAddress) {
 // Test IndexNumber
 TEST(IndexNumberTest, DefaultConstructor) {
     IndexNumber index;
-    EXPECT_FALSE(index.checkIndex(index.getIndex()));  // Ensure index is not in indexes_
+    EXPECT_FALSE(index.checkIndex(index.getIndex()));  
 }
 
 TEST(IndexNumberTest, InsertIndex) {
     IndexNumber index;
     index.insertIndex(12345);
-    EXPECT_TRUE(index.checkIndex(12345));  // Ensure the inserted index is in indexes_
+    EXPECT_TRUE(index.checkIndex(12345));  
 }
 
 TEST(IndexNumberTest, RemoveIndex) {
     IndexNumber index;
     index.insertIndex(54321);
     index.removeIndex(54321);
-    EXPECT_FALSE(index.checkIndex(54321));  // Ensure the removed index is not in indexes_
+    EXPECT_FALSE(index.checkIndex(54321));  
 }
 
 TEST(IndexNumberTest, CreateIndex) {
     IndexNumber index;
     index.createIndex();
-    EXPECT_TRUE(index.checkIndex(index.getIndex()));  // Ensure the created index is in indexes_
+    EXPECT_TRUE(index.checkIndex(index.getIndex()));  
 }
 
 TEST(IndexNumberTest, StreamInsertionExtraction) {
     IndexNumber index;
     index.createIndex();
 
-    // Use stringstream for insertion and extraction
     std::stringstream ss;
     ss << index;
 
@@ -78,36 +81,29 @@ TEST(IndexNumberTest, StreamInsertionExtraction) {
 
 // Test Name
 TEST(NameTest, StreamInsertionExtraction) {
-    // Create a Name object
     Name name;
 
-    // Use stringstream to set private members
     std::stringstream ss;
     ss << "John Doe";
 
-    // Extract values into the private members
     ss >> name;
 
-    // Check the values
     EXPECT_EQ(name.getFirstName(), "John");
     EXPECT_EQ(name.getLastName(), "Doe");
 }
 
 TEST(NameTest, LessThanOperator) {
-    // Create Name objects
     Name name1;
     Name name2;
 
-    // Set private members using stringstream
     std::stringstream ss1("John Doe");
     std::stringstream ss2("Jane Deo");
 
     ss1 >> name1;
     ss2 >> name2;
 
-    // Compare using less-than operator
-    EXPECT_FALSE(name1.getLastName() < name1.getLastName());  // A name is not less than itself
-    EXPECT_FALSE(name1.getLastName() < name2.getLastName());   // Compare by last names
+    EXPECT_FALSE(name1.getLastName() < name1.getLastName());  
+    EXPECT_FALSE(name1.getLastName() < name2.getLastName());   
     EXPECT_TRUE(name2.getLastName() < name1.getLastName());
 }
 
@@ -117,7 +113,6 @@ TEST(PeselTest, StreamInsertionExtraction) {
     Pesel pesel;
     Pesel new_pesel;
 
-    // Use stringstream for insertion and extraction
     std::stringstream ss1("91082267218");
     std::stringstream ss2("91082267218");
 
@@ -130,7 +125,6 @@ TEST(PeselTest, StreamInsertionExtraction) {
 TEST(PeselTest, CheckPeselValid) {
     Pesel pesel;
 
-    // Valid PESEL: 44051401458
     std::stringstream ss("44051401458");
     ss >> pesel;
 
@@ -140,7 +134,6 @@ TEST(PeselTest, CheckPeselValid) {
 TEST(PeselTest, CheckPeselInvalid) {
     Pesel pesel;
 
-    // Invalid PESEL: 12345678901
     std::stringstream ss("12345678901");
     ss >> pesel;
 
@@ -167,21 +160,19 @@ TEST(PeselTest, LessThanOperator) {
 TEST(SexTest, SetSexValid) {
     Sex sex;
 
-    // Valid sex: "female"
     std::stringstream ss("female");
     ss >> sex;
 
-    EXPECT_TRUE(sex.checkSex(6));  // Pass a PESEL number for checking, can be any value
+    EXPECT_TRUE(sex.checkSex(6)); 
 }
 
 TEST(SexTest, SetSexInvalid) {
     Sex sex;
 
-    // Invalid sex: "unknown"
     std::stringstream ss("unknown");
     ss >> sex;
 
-    EXPECT_FALSE(sex.checkSex(2));  // Pass a PESEL number for checking, can be any value
+    EXPECT_FALSE(sex.checkSex(2)); 
 }
 
 TEST(SexTest, CheckSexValid) {
@@ -190,7 +181,7 @@ TEST(SexTest, CheckSexValid) {
     std::stringstream ss("male");
     ss >> sex;
 
-    EXPECT_TRUE(sex.checkSex(9));  // Pass a PESEL number for checking, can be any value
+    EXPECT_TRUE(sex.checkSex(9)); 
 }
 
 TEST(SexTest, CheckSexInvalid) {
@@ -199,5 +190,7 @@ TEST(SexTest, CheckSexInvalid) {
     std::stringstream ss("female");
     ss >> sex;
 
-    EXPECT_FALSE(sex.checkSex(1));  // Pass a PESEL number for checking, can be any value
+    EXPECT_FALSE(sex.checkSex(1)); 
 }
+
+// TODO: dodaj więcej testów

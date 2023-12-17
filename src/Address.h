@@ -1,3 +1,8 @@
+/*
+ * Klasa do przechowywania adresu. Na ten moment jest to uproszczona wersja, ponieważ adres jest traktowany
+ * jako pojedyczny ciąg znaków. Należałby rozważyć podzielenie adresu na poszczególne składowe.
+*/
+
 #pragma once
 #include <iostream>
 

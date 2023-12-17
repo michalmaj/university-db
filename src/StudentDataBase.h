@@ -1,3 +1,7 @@
+/*
+ * Klasa do budowania bazy studentów.
+*/
+
 #pragma once
 
 #include <vector>

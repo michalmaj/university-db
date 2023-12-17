@@ -1,3 +1,9 @@
+/*
+ * Klasa do obsługi numeru Pesel. W tym przypadku zdecydowano się na przechowywanie w zmiennej typu size_t.
+ * Weryfikacja poprawności oparta jest o sprawdzenie z ilu cyfr składa się pesel oraz sprawdzenie z cyfrą
+ * kontrolną.
+*/
+
 #pragma once
 
 #include <iostream>

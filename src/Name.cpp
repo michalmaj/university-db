@@ -6,7 +6,8 @@ std::ostream& operator<<(std::ostream &out, const Name &n) {
 }
 
 std::istream &operator>>(std::istream &in, Name &n) {
-  in >> n.firstName_ >> n.lastName_;
+  in >> n.firstName_;
+  in >> n.lastName_;
   return in;
 }
 

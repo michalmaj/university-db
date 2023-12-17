@@ -6,7 +6,7 @@ std::ostream &operator<<(std::ostream &out, const Address &a) {
 }
 
 std::istream &operator>>(std::istream &in, Address &a) {
-  in >> a.address_;
+  std::getline(in, a.address_);
   return in;
 }
 
